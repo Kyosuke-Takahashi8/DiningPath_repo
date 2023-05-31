@@ -13,17 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('shops', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->rememberToken();
             $table->timestamps();
-            $table->string('tel');
-            $table->geometry('location');
-            $table->integer('role');
+            $table->string('name');//店舗名
+            $table->string('tel');//電話番号
+            $table->integer('number_of_seats');//座席数
+            $table->string('opening_hours');//営業時間
+            $table->string('address');//住所
         });
     }
 
@@ -34,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('shops');
     }
 };
