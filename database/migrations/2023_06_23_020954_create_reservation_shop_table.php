@@ -13,10 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('reservation_user', function (Blueprint $table) {
+        Schema::create('reservation_shop', function (Blueprint $table) {
             $table->foreignId('reservation_id')->constrained('reservations');
-            $table->foreignId('user_id')->constrained('users');
-            $table->primary([ 'reservation_id','user_id']);
+            $table->foreignId('shop_id')->constrained('shops');
+            $table->primary([ 'reservation_id','shop_id']);
         });
     }
 
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('reservation_user');
+        Schema::dropIfExists('reservation_shop');
     }
 };
